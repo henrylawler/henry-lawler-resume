@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Henry Lawler Resume - Effectiveness Layout</title>
+  <style>
+    :root {
+      --ivory: #FAF9F5;
+      --paper: #FFFFFF;
+      --slate: #141413;
+      --clay: #D97757;
+      --clay-dark: #B85C3E;
+      --oat: #E3DACC;
+      --olive: #788C5D;
+      --gray-100: #F0EEE6;
+      --gray-200: #E6E3DA;
+      --gray-300: #D1CFC5;
+      --gray-500: #87867F;
+      --gray-700: #3D3D3A;
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+      --border: 1.5px solid var(--gray-300);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--gray-700);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 50px 0 96px;
+    }
+    .body-grid {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 42px;
+    }
+    .content {
+      min-width: 0;
+    }
+    .capability-rail {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+      border-top: 1px solid var(--gray-300);
+      padding-top: 18px;
+    }
+    .capability-rail p,
+    .role-index {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .capability-rail p {
+      color: var(--clay-dark);
+      margin: 0 0 12px;
+    }
+    .capability-rail ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--gray-700);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .capability-rail li {
+      margin: 0 0 9px;
+      padding-left: 4px;
+    }
+    .role-index {
+      color: var(--gray-500);
+    }
+    header {
+      border-bottom: 1.5px solid var(--gray-300);
+      margin-bottom: 34px;
+      padding-bottom: 26px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      color: var(--slate);
+      font-family: var(--serif);
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.018em;
+    }
+    .headline {
+      margin: 0 0 18px;
+      color: var(--slate);
+      font-size: 17px;
+      font-weight: 650;
+      max-width: 760px;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .contact-row span {
+      border: var(--border);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--gray-700);
+      font-size: 12.5px;
+      padding: 6px 11px;
+    }
+    .section {
+      margin-bottom: 46px;
+      scroll-margin-top: 28px;
+    }
+    .section-head {
+      margin-bottom: 16px;
+    }
+    h2 {
+      margin: 0;
+      color: var(--slate);
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -.01em;
+    }
+    .tldr {
+      border: var(--border);
+      border-left: 4px solid var(--clay);
+      border-radius: 10px;
+      background: var(--paper);
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+    .tldr p,
+    .panel-body p {
+      margin: 0;
+      max-width: 780px;
+    }
+    .role-card,
+    .simple-panel .panel-body {
+      border: var(--border);
+      border-radius: 12px;
+      background: var(--paper);
+      padding: 20px 22px;
+      margin-bottom: 18px;
+    }
+    .role-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: start;
+      border-bottom: 1px solid var(--gray-200);
+      padding-bottom: 13px;
+      margin-bottom: 13px;
+    }
+    h3 {
+      margin: 4px 0 0;
+      color: var(--slate);
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -.01em;
+    }
+    .role-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+      max-width: 360px;
+    }
+    .role-meta span {
+      border: var(--border);
+      border-radius: 999px;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 5px 8px;
+      white-space: nowrap;
+    }
+    .role-note {
+      margin: 0 0 13px;
+      color: var(--gray-500);
+      font-size: 13px;
+      font-style: italic;
+    }
+    .evidence-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .evidence-list li {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      border-left: 3px solid var(--oat);
+      padding: 0 0 0 13px;
+    }
+    .evidence-list li:hover {
+      border-left-color: var(--clay);
+    }
+    .num {
+      color: var(--clay-dark);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding-top: 3px;
+    }
+    .evidence-list p {
+      margin: 0;
+      color: var(--gray-700);
+      font-size: 14px;
+    }
+    strong {
+      color: var(--slate);
+      font-weight: 650;
+    }
+    .panel-body {
+      display: grid;
+      gap: 6px;
+    }
+    .panel-body p {
+      font-size: 14px;
+    }
+    @media (max-width: 900px) {
+      .page {
+        width: min(100% - 28px, 760px);
+        padding-top: 30px;
+      }
+      .body-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+      .capability-rail {
+        position: static;
+        border-top: 0;
+        border-bottom: 1px solid var(--gray-300);
+        padding: 0 0 20px;
+      }
+      .role-top {
+        grid-template-columns: 1fr;
+      }
+      .role-meta {
+        justify-content: flex-start;
+      }
+    }
+    @media print {
+      @page { size: Letter; margin: .36in .42in; }
+      body { background: #fff; }
+      .page {
+        width: auto;
+        padding: 0;
+      }
+      .body-grid { display: block; }
+      .capability-rail { display: none; }
+      header {
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+      }
+      h1 { font-size: 31px; }
+      .headline { font-size: 12px; margin-bottom: 8px; }
+      .contact-row span { border: 0; padding: 0 8px 0 0; }
+      .section { margin-bottom: 18px; }
+      .section-head {
+        margin-bottom: 7px;
+        border-bottom: 1px solid var(--gray-300);
+        padding-bottom: 3px;
+      }
+      h2 { font-family: var(--sans); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--clay-dark); }
+      .tldr,
+      .role-card,
+      .simple-panel .panel-body {
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        margin-bottom: 10px;
+      }
+      .role-top {
+        display: block;
+        border-bottom: 0;
+        padding-bottom: 0;
+        margin-bottom: 4px;
+      }
+      h3 { font-family: var(--sans); font-size: 11px; font-weight: 700; }
+      .role-meta span { border: 0; background: transparent; padding: 0 8px 0 0; }
+      .evidence-list { gap: 4px; }
+      .evidence-list li {
+        display: list-item;
+        list-style: disc;
+        margin-left: 17px;
+        border-left: 0;
+        padding-left: 0;
+      }
+      .num { display: none; }
+      .evidence-list p,
+      .tldr p,
+      .panel-body p {
+        font-size: 9.2px;
+        line-height: 1.25;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+      <header>
+        <h1>Henry Lawler</h1>
+        <p class="headline">Senior Product Manager - Relay Operations Center (ROC), Middle Mile Logistics - ATS</p>
+        <div class="contact-row">
+            <span>Atlanta, GA</span>
+            <span>hhlawler@gmail.com</span>
+            <span>662.931.4715</span>
+            <span>linkedin.com/in/HenryLawler</span>
+        </div>
+      </header>
+      <div class="body-grid">
+    <aside class="capability-rail" aria-label="Product development capabilities">
+      <p>Experienced in all phases of product development:</p>
+      <ol>
+        <li>Project proposal writing and funding evaluation</li>
+        <li>Research (business analytics, market, behavioral, applied science)</li>
+        <li>UX design &amp; prototyping</li>
+        <li>Roadmap planning &amp; prioritization</li>
+        <li>Logistics and support automation</li>
+        <li>Business/ops integration of new products</li>
+        <li>Pilot performance &amp; metrics tracking</li>
+        <li>Cross-functional delivery across product, engineering, science, operations, and finance</li>
+        <li>AI driven project management</li>
+      </ol>
+    </aside>
+        <div class="content">
+      <section id="summary" class="section summary-section">
+        <div class="section-head">
+          <h2>Summary</h2>
+        </div>
+        <div class="tldr">
+          <p>Senior Product Manager (L6) at Amazon with 10+ years across transportation operations and product development, building technology for high-risk logistics workflows, customer service automation, and internal AI systems.</p>
+        </div>
+      </section>
+      <section id="experience" class="section">
+        <div class="section-head">
+          <h2>Experience</h2>
+        </div>
+        <article id="amazon-senior-product-manager-l6-roc-tech-ops-integration" class="role-card">
+          <div class="role-top">
+            <div>
+              <p class="role-index">Section 01</p>
+              <h3>Amazon - Senior Product Manager (L6), ROC Tech &amp; Ops Integration</h3>
+            </div>
+            <div class="role-meta">
+              <span>Highlights · 2023-Present</span>
+            </div>
+          </div>
+          <p class="role-note">Lead AI and automation product strategy for Amazon&#x27;s Middle Mile transportation operations.</p>
+          <ol class="evidence-list">
+          <li>
+            <span class="num">1.01</span>
+            <p><strong>Sensei - Learn</strong><span> - Low-code AI workflow development system; uses documents/recordings to generate automated workflows without hands-on engineering. Took from concept to prototype in ~3wks, automating a process in backlog &gt;5 years. Enterprise product deployed Q1&#x27;26 - tracking for $38MM in operations savings by EOY.</span></p>
+          </li>
+          <li>
+            <span class="num">1.02</span>
+            <p><strong>ATS AI Ambassador</strong><span> - Built the operations&#x27; AI documentation corpus/knowledge strategy; training and hands-on workshops for managers and senior leaders on AI tools and development strategy. Drive org adoption and applied solutions for operations and individual project management.</span></p>
+          </li>
+          <li>
+            <span class="num">1.03</span>
+            <p><strong>Network Safety &amp; Resiliency Automation</strong><span> - Owned Severe Event Management products (2022-25); enabled 88% automated detection of severe weather events and cut manual work for facility shutdowns by 60%. Driver contact &amp; redirect automation drove 29.8% reduction in high-severity crash rate and 35.8% reduction in crash rate overall in North America.</span></p>
+          </li>
+          <li>
+            <span class="num">1.04</span>
+            <p><strong>Relay Smart Support -&gt; Relay Assistant</strong><span> - Built customer support system on AWS Connect for drivers and carriers (2024); added Relay Assistant AI Agent automating 34.7% of call center volume (2025), and building Relay Voice Agent to deploy Q3&#x27;26.</span></p>
+          </li>
+          <li>
+            <span class="num">1.05</span>
+            <p><strong>Delivery Risk Authority</strong><span> - Disruption Management ML model that uses risk factor detection to predict loads that will fail delivery schedule to proactively book backup drivers for recovery; Delivers $44MM in annual savings.</span></p>
+          </li>
+          <li>
+            <span class="num">1.06</span>
+            <p><strong>Streamline</strong><span> - Inventor, &quot;Intelligent Logistics Disruption Resolutions&quot; US Patent P85677-US01 - Proposed as first enterprise GenAI tool for Middle Mile operations in 2023, first ever Amazon-sponsored patent filing for ROC. Uses AI to consolidate data across systems to automate ops task resolution and streamline decision making.</span></p>
+          </li>
+          </ol>
+        </article>
+        <article id="amazon-previous-roles" class="role-card">
+          <div class="role-top">
+            <div>
+              <p class="role-index">Section 02</p>
+              <h3>Amazon - Previous Roles</h3>
+            </div>
+            <div class="role-meta">
+              <span>Atlanta, GA · 2015-2023</span>
+            </div>
+          </div>
+          <p class="role-note">Progressed from Operations Specialist-&gt;Program Manager-&gt;Supply Chain Manager-&gt;Product Manager</p>
+          <ol class="evidence-list">
+          <li>
+            <span class="num">2.01</span>
+            <p>Own annual planning exercises (Operating Plans and Tech Roadmap), 3-year planning for disruption-management technology; started <strong>Elevate</strong>, an org-wide voice-of-customer and tech funding proposal intake for identifying automation opportunities to feed tech teams for resourcing and development or research.</p>
+          </li>
+          <li>
+            <span class="num">2.02</span>
+            <p><strong>TWMS</strong><span> - (Transportation Workflow Management System) No-code workflow building system enabling supply chain managers to build and maintain their own disruption-management workflows on the DM platform.</span></p>
+          </li>
+          <li>
+            <span class="num">2.03</span>
+            <p><strong>Click2Call</strong><span> - Developed a novel call/contact-routing support system for ROC operation that replaced traditional desk phone hotlines in a call center with an integrated callback automation system, fundamentally changing the operations support model.</span></p>
+          </li>
+          <li>
+            <span class="num">2.04</span>
+            <p><strong>Network trailer-balancing automation</strong><span> - Designed equipment-balancing automation inside disruption management, supporting recovery workflows and returning $25M in out-of-network Amazon equipment to Amazon facilities in the first months.</span></p>
+          </li>
+          <li>
+            <span class="num">2.05</span>
+            <p><strong>Out-of-network equipment recovery</strong><span> - Led Current Equipment Team recovery work that returned nearly $25M in out-of-network Amazon equipment to Amazon facilities over four months while maintaining daily Middle Mile execution.</span></p>
+          </li>
+          <li>
+            <span class="num">2.06</span>
+            <p>Launched <strong>Disruption Management</strong> technology (Work Item Management System, 2018) - exception detection and tracking that scaled Amazon Logistics from a 300-load/day NA startup-carrier baseline to 39.7MM loads globally per year.</p>
+          </li>
+          </ol>
+        </article>
+      </section>
+      <section id="earlier-experience" class="section simple-panel">
+        <div class="section-head">
+          <h2>Earlier Experience</h2>
+        </div>
+        <div class="panel-body">
+          <p><strong>UN World Food Programme</strong> - Dar es Salaam, Tanzania (2014-15): port operations, distributing food aid through Tanzania, Rwanda, the Congo, and Uganda.</p>
+        </div>
+      </section>
+      <section id="education" class="section simple-panel">
+        <div class="section-head">
+          <h2>Education</h2>
+        </div>
+        <div class="panel-body">
+          <p>University of Mississippi, Sally McDonnell Barksdale Honors College - Bachelor of Arts</p>
+          <p>Double Major:  Psychology (Focus - Behavioral Psychology, Neuroscience) &amp; Studio Art (Focus - 2D Design)</p>
+          <p>Minor: Spanish</p>
+          <p>Graduated with distinction</p>
+        </div>
+      </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
