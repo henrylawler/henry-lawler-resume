@@ -229,6 +229,7 @@
     .panel-body p {
       font-size: 14px;
     }
+    .skills-footer { display: none; }
     @media (max-width: 900px) {
       .page {
         width: min(100% - 28px, 760px);
@@ -298,7 +299,11 @@
         border-left: 0;
         padding-left: 0;
       }
-      .num { display: none; }
+      .num, .role-index { display: none; }
+      .skills-footer { display: block; break-inside: avoid; }
+      .skills-footer ul { list-style: none; margin: 6px 0 0; padding: 0; font-size: 9.2px; line-height: 1.3; }
+      .skills-footer li { display: inline; }
+      .skills-footer li + li::before { content: " · "; }
       .evidence-list p,
       .tldr p,
       .panel-body p {
@@ -331,8 +336,9 @@
         <li>Roadmap planning &amp; prioritization</li>
         <li>Logistics and support automation</li>
         <li>Business/ops integration</li>
+        <li>Data Analytics</li>
         <li>Cross-functional delivery across product, engineering, science, operations, and finance</li>
-        <li>AI-driven project management</li>
+        <li>AI Product Management</li>
       </ol>
     </aside>
         <div class="content">
@@ -382,7 +388,7 @@
           </li>
           <li>
             <span class="num">1.06</span>
-            <p><strong>Streamline</strong><span> - Inventor, &quot;Intelligent Logistics Disruption Resolutions&quot; US Patent P85677-US01; proposed first enterprise GenAI tool for Middle Mile operations in 2023 and first ever patent filing for ROC. Consolidates data across systems to automate operations task resolution.</span></p>
+            <p><strong>Streamline</strong><span> - Inventor, &quot;Intelligent Logistics Disruption Resolutions&quot; US Patent P85677-US01; first enterprise GenAI tool for Middle Mile operations in 2023 and first ever patent filing for ROC. Consolidates data across systems to automate operations task resolution.</span></p>
           </li>
           </ol>
         </article>
@@ -396,7 +402,6 @@
               <span>Atlanta, GA · 2015-2023</span>
             </div>
           </div>
-          <p class="role-note">Progressed from Operations Specialist-&gt;Program Manager-&gt;Supply Chain Manager-&gt;Product Manager</p>
           <ol class="evidence-list">
           <li>
             <span class="num">2.01</span>
@@ -408,11 +413,11 @@
           </li>
           <li>
             <span class="num">2.03</span>
-            <p><strong>Click2Call</strong><span> - Developed a novel call/contact-routing support system for ROC operation that replaced desk phone hotlines in a call center with an integrated callback automation system.</span></p>
+            <p><strong>Click2Call</strong><span> - Developed an operations customer support automation and routing system that replaced legacy hotline desk phones with call center automation integrated with middle mile Disruption Management (pre-AI); foundation for AI-powered support in Streamline, Relay Smart Support, and Relay Assistant.</span></p>
           </li>
           <li>
             <span class="num">2.04</span>
-            <p><strong>Equipment recovery automation</strong><span> - Led Current Equipment Team recovery work and designed trailer-balancing automation inside disruption management, returning nearly $25M in out-of-network Amazon equipment over four months while maintaining daily Middle Mile execution.</span></p>
+            <p><strong>Equipment recovery automation</strong><span> - Designed trailer balancing and lost asset recovery automation inside disruption management, returning nearly $25M in out-of-network Amazon equipment; supports &gt;$160MM in equipment repositioning annually for the Amazon network.</span></p>
           </li>
           <li>
             <span class="num">2.05</span>
@@ -435,13 +440,27 @@
         </div>
         <div class="panel-body">
           <p>University of Mississippi, Sally McDonnell Barksdale Honors College - Bachelor of Arts</p>
-          <p>Double Major:  Psychology (Focus - Behavioral Psychology, Neuroscience) &amp; Studio Art (Focus - 2D Design)</p>
+          <p>Double Major:  Psychology (Behavioral Psychology, Neuroscience) &amp; Studio Art (2D Design)</p>
           <p>Minor: Spanish</p>
           <p>Graduated with distinction</p>
         </div>
       </section>
         </div>
       </div>
+    <footer class="skills-footer" aria-label="Skills">
+      <div class="section-head"><h2>Skills</h2></div>
+      <ul>
+        <li>Project proposal writing and funding evaluation</li>
+        <li>Business, market, behavioral, and applied-science research</li>
+        <li>UX design &amp; prototyping</li>
+        <li>Roadmap planning &amp; prioritization</li>
+        <li>Logistics and support automation</li>
+        <li>Business/ops integration</li>
+        <li>Data Analytics</li>
+        <li>Cross-functional delivery across product, engineering, science, operations, and finance</li>
+        <li>AI Product Management</li>
+      </ul>
+    </footer>
     </main>
   </div>
 </body>
